@@ -1,0 +1,56 @@
+﻿@model IEnumerable<RezervasyonMvc.Model.Models.Oda>
+<div class="container">
+    <div class="border p-4 bg-white">
+        <div class="row">
+            <div class="col-9">
+                <h2 class="text-info">Oda Listesi</h2>
+            </div>
+            <div class="col-3 text-left">
+                <a asp-action="Update_Insert" class="btn btn-info form-control">Yeni Oluştur</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 text-left">
+            </div>
+        </div>
+        <br />
+        <div>
+            @if (Model.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th></th>
+                        <th>Id</th>
+                        <th>OdaNo</th>
+                        <th>Oda Kapasitesi</th>
+                        <th>Yatak Sayısı</th>
+                        <th>Oda Fiyatı</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a class="btn btn-primary text-white" asp-action="Update_Insert"
+                                asp-route-Id="@item.Id">Düzenle</a>
+                                         <a class="btn btn-danger text-white" asp-action="Sil"
+                        asp-route-Id="@item.Id">Sil</a>
+                            </td>
+                            <td>@item.Id</td>
+                            <td>@item.OdaNo</td>
+                            <td>@item.OdaKapasite</td>
+                            <td>@item.YatakSayısı</td>
+                            <td>@item.OdaFiyat</td>
+                        </tr>
+
+                    }
+
+                </table>
+            }
+            else
+            {
+                <p>Listelenecek Herhangi Bir Oda Bulunmadı</p>
+            }
+        </div>
+    </div>
+</div>
+
