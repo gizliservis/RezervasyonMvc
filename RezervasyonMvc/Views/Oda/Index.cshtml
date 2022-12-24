@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<RezervasyonMvc.Model.Models.Oda>
+@{
+    string s = "";
+}
 <div class="container">
     <div class="border p-4 bg-white">
         <div class="row">
@@ -25,6 +28,7 @@
                         <th>Oda Kapasitesi</th>
                         <th>Yatak Sayısı</th>
                         <th>Oda Fiyatı</th>
+                        <th>Durumu</th>
                     </tr>
                     @foreach (var item in Model)
                     {
@@ -40,6 +44,19 @@
                             <td>@item.OdaKapasite</td>
                             <td>@item.YatakSayısı</td>
                             <td>@item.OdaFiyat</td>
+                            <td>
+                                @if (item.Rezerve)
+                                {
+                                    s = "Rezerve";
+                                    @s
+                                    ;
+                                }
+                                else
+                                {
+                                    s = "Rezerve Değil";
+                                    @s;
+                                }
+                            </td>
                         </tr>
 
                     }

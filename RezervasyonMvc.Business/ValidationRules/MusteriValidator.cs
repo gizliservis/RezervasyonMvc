@@ -14,7 +14,7 @@ namespace RezervasyonMvc.Business.ValidationRules
         {
             RuleFor(p => p.MusteriAdi).NotEmpty().WithMessage("Müşteri Adı Alanı Boş Geçilemez.").MaximumLength(50).WithMessage("Adı Alanı En Fazla 50 Karekter olamalıdır");
             RuleFor(p => p.MusteriSoyadi).NotEmpty().WithMessage("Müşteri SoyAdı Alanı Boş Geçilemez.");
-            RuleFor(p => p.TcNo).NotEmpty().WithMessage("Tc No Alanı Boş Geçilemez.");
+            RuleFor(p => p.TcNo).NotEmpty().WithMessage("Tc No Alanı Boş Geçilemez.").MaximumLength(11).WithMessage("deneme");
         }
     }
 }

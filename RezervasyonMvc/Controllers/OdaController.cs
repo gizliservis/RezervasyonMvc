@@ -50,5 +50,10 @@ namespace RezervasyonMvc.Controllers
             }
             return View(oda) ;
         }
+        public IActionResult Sil(Oda oda)
+        {
+             om.Delete(oda);
+            return RedirectToAction("Index");
+        }
     }
 }

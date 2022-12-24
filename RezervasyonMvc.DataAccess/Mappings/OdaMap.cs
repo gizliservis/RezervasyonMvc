@@ -24,6 +24,7 @@ namespace RezervasyonMvc.DataAccess.Mappings
             builder.Property(c=>c.OdaKapasite).HasColumnName("OdaKapasite");
             builder.Property(c=>c.YatakSayısı).HasColumnName("YatakSayısı");
             builder.Property(c=>c.OdaFiyat).HasColumnName("OdaFiyat");
+            builder.Property(c=>c.Rezerve).HasColumnName("Rezerve");
         }
     }
 }
