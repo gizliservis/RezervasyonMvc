@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RezervasyonMvc.DataAccess.Concrete;
 
 namespace RezervasyonMvc.DataAccess.Migrations
 {
     [DbContext(typeof(RezervasyonContext))]
-    partial class RezervasyonContextModelSnapshot : ModelSnapshot
+    [Migration("20221225030056_KisiSayisiTable")]
+    partial class KisiSayisiTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

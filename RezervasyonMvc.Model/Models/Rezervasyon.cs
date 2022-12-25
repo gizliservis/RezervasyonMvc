@@ -17,7 +17,7 @@ namespace RezervasyonMvc.Model.Models
         public DateTime GrisTarihi { get; set; }
         public DateTime CikisTarihi { get; set; }
         public int OdaSayisi { get; set; }
-        public int KişiSayisi { get; set; }
+        public int KisiSayisi { get; set; }
         public decimal RezToplamTutar { get; set; }
     }
 }

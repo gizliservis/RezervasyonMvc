@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RezervasyonMvc.DataAccess.Concrete;
 
 namespace RezervasyonMvc.DataAccess.Migrations
 {
     [DbContext(typeof(RezervasyonContext))]
-    partial class RezervasyonContextModelSnapshot : ModelSnapshot
+    [Migration("20221225005529_RezervasyonTableMig")]
+    partial class RezervasyonTableMig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -106,9 +108,9 @@ namespace RezervasyonMvc.DataAccess.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("GrisTarihi");
 
-                    b.Property<int>("KisiSayisi")
+                    b.Property<int>("KişiSayisi")
                         .HasColumnType("int")
-                        .HasColumnName("KisiSayisi");
+                        .HasColumnName("KişiSayisi");
 
                     b.Property<int>("MusteriId")
                         .HasColumnType("int")

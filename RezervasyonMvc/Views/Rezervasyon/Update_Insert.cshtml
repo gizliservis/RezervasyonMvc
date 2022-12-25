@@ -1,0 +1,53 @@
+﻿@model RezervasyonMvc.Model.Models.OtherModel.RezervasyonYap
+@{
+    var Title = "Oda Oluştur";
+}
+
+<form>
+    <div class="row p-3 border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-12 border-bottom">
+            <h2 class="text-primary">@Title</h2>
+        </div>
+        <div class="col-8 pt-4">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Rezervasyonlar.GrisTarihi">Giriş Tarihi</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Rezervasyonlar.GrisTarihi" class="form-control" />
+                    <span asp-validation-for="Rezervasyonlar.GrisTarihi" class="text-danger"></span>
+                </div>
+                <div class="col-4">
+                    <label asp-for="Rezervasyonlar.CikisTarihi"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Rezervasyonlar.CikisTarihi" class="form-control" />
+                    <span asp-validation-for="Rezervasyonlar.CikisTarihi" class="text-danger"></span>
+                </div>
+                <div class="col-4">
+                    <label asp-for="Rezervasyonlar.KisiSayisi"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Rezervasyonlar.KisiSayisi" class="form-control" />
+                    <span asp-validation-for="Rezervasyonlar.KisiSayisi" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4 offset-4">
+                
+                        <button asp-action="Insert" class="btn btn-primary form-control">Oda Güncelle</button>
+                </div>
+                <div class="col-4">
+                    <a asp-action="Index" class="btn btn-success form-control">Listeye Geri Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
