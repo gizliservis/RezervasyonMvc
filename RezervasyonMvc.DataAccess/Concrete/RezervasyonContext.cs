@@ -13,19 +13,17 @@ namespace RezervasyonMvc.DataAccess.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-SLOIL0F;Database=DbRezervasyon;User Id=sa;Password=17421742;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-SLOIL0F;Database=dbezervasyon;User Id=sa;Password=17421742;");
         }
         public DbSet<Musteri> Musteriler { get; set; }
         public DbSet<Oda> Odalar { get; set; }
         public DbSet<Rezervasyon> Rezervasyonlar { get; set; }
-        public DbSet<RezervasyonHareket> RezervasyonHareketleri { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new OdaMap());
             modelBuilder.ApplyConfiguration(new MusteriMap());
             modelBuilder.ApplyConfiguration(new RezervasyonMap());
-            modelBuilder.ApplyConfiguration(new RezervasyonHareketMap());
 
         }
     }

@@ -14,7 +14,6 @@ namespace RezervasyonMvc.Model.Models
         public string OdaNo { get; set; }
         public int OdaKapasite { get; set; }
         public int YatakSayısı { get; set; }
-        public ICollection<RezervasyonHareket> RezervasyonHareketleri { get; set; }
         public decimal OdaFiyat { get; set; }
         public bool Rezerve { get; set; }
 

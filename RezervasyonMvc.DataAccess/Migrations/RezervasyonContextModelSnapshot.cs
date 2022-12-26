@@ -106,6 +106,9 @@ namespace RezervasyonMvc.DataAccess.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("GrisTarihi");
 
+                    b.Property<int>("GunSayisi")
+                        .HasColumnType("int");
+
                     b.Property<int>("KisiSayisi")
                         .HasColumnType("int")
                         .HasColumnName("KisiSayisi");
@@ -123,53 +126,14 @@ namespace RezervasyonMvc.DataAccess.Migrations
                         .HasColumnType("decimal(12,2)")
                         .HasColumnName("RezToplamTutar");
 
+                    b.Property<int>("YatakSayisi")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("MusteriId");
 
                     b.ToTable("Rezervasyonlar");
-                });
-
-            modelBuilder.Entity("RezervasyonMvc.Model.Models.RezervasyonHareket", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("GunSayisi")
-                        .HasColumnType("int")
-                        .HasColumnName("GunSayisi");
-
-                    b.Property<int>("KisiSayisi")
-                        .HasColumnType("int")
-                        .HasColumnName("KisiSayisi");
-
-                    b.Property<int>("OdaId")
-                        .HasColumnType("int")
-                        .HasColumnName("OdaId");
-
-                    b.Property<int>("RezervasyonId")
-                        .HasColumnType("int")
-                        .HasColumnName("RezervasyonId");
-
-                    b.Property<decimal>("ToplamOdaFiyati")
-                        .HasPrecision(12, 2)
-                        .HasColumnType("decimal(12,2)")
-                        .HasColumnName("ToplamOdaFiyati");
-
-                    b.Property<int>("YatakSayisi")
-                        .HasColumnType("int")
-                        .HasColumnName("YatakSayisi");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OdaId");
-
-                    b.HasIndex("RezervasyonId");
-
-                    b.ToTable("RezervasyonHareketleri");
                 });
 
             modelBuilder.Entity("RezervasyonMvc.Model.Models.Rezervasyon", b =>
@@ -183,38 +147,9 @@ namespace RezervasyonMvc.DataAccess.Migrations
                     b.Navigation("Musteri");
                 });
 
-            modelBuilder.Entity("RezervasyonMvc.Model.Models.RezervasyonHareket", b =>
-                {
-                    b.HasOne("RezervasyonMvc.Model.Models.Oda", "Oda")
-                        .WithMany("RezervasyonHareketleri")
-                        .HasForeignKey("OdaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("RezervasyonMvc.Model.Models.Rezervasyon", "Rezervasyon")
-                        .WithMany("RezervasyonHareketleri")
-                        .HasForeignKey("RezervasyonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Oda");
-
-                    b.Navigation("Rezervasyon");
-                });
-
             modelBuilder.Entity("RezervasyonMvc.Model.Models.Musteri", b =>
                 {
                     b.Navigation("Rezervasyonlar");
-                });
-
-            modelBuilder.Entity("RezervasyonMvc.Model.Models.Oda", b =>
-                {
-                    b.Navigation("RezervasyonHareketleri");
-                });
-
-            modelBuilder.Entity("RezervasyonMvc.Model.Models.Rezervasyon", b =>
-                {
-                    b.Navigation("RezervasyonHareketleri");
                 });
 #pragma warning restore 612, 618
         }

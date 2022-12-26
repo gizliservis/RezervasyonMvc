@@ -13,11 +13,12 @@ namespace RezervasyonMvc.Model.Models
         public int Id { get; set; }
         public int MusteriId { get; set; }
         public virtual Musteri Musteri { get; set; }
-        public ICollection<RezervasyonHareket> RezervasyonHareketleri { get; set; }
         public DateTime GrisTarihi { get; set; }
         public DateTime CikisTarihi { get; set; }
         public int OdaSayisi { get; set; }
         public int KisiSayisi { get; set; }
+        public int YatakSayisi { get; set; }
+        public int GunSayisi { get; set; }
         public decimal RezToplamTutar { get; set; }
     }
 }
