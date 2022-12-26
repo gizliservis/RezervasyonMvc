@@ -33,10 +33,8 @@
                     {
                         <tr>
                             <td>
-                                <a class="btn btn-primary text-white" asp-action="Update_Insert"
+                                <a class="btn btn-primary text-white" asp-action="Insert"
                            asp-route-Id="@item.Id">Düzenle</a>
-                                <a class="btn btn-danger text-white" asp-action="Sil"
-                           asp-route-Id="@item.Id">Sil</a>
                             </td>
                             <td>@item.Id</td>
                             <td>@item.Musteri.MusteriAdi</td>
@@ -54,7 +52,7 @@
             }
             else
             {
-                <p>Listelenecek Herhangi Bir Oda Bulunmadı</p>
+                <p>Listelenecek Herhangi Bir Rezervasyon Bulunmadı</p>
             }
         </div>
     </div>
