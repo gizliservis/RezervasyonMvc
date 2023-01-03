@@ -1,0 +1,292 @@
+﻿@model RezervasyonMvc.Model.Models.Stok
+@{
+    // ViewData["Title"] = "Update_Insert";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var Title = "Stok Oluştur";
+}
+<form action="Update_Insert" method="post">
+    <div class="row p-3 border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        @if (Model.Id != 0)
+        {
+            Title = "Stok Düzenle";
+
+        }
+        <div class="col-12 border-bottom">
+            <h2 class="text-primary">@Title</h2>
+        </div>
+        <div class="col-8 pt-4">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Durumu">Durumu :</label>
+                </div>
+                <div class="col-8">
+                    <input type="checkbox" asp-for="Durumu" class="form-control" />
+                    <span asp-validation-for="Durumu" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="StokKodu">Stok Kodu :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="StokKodu" class="form-control" />
+                    <span asp-validation-for="StokKodu" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="StokAdi">Stok Adı :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="StokAdi" class="form-control" />
+                    <span asp-validation-for="StokAdi" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="Barkod"> Barkod :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Barkod" class="form-control" />
+                    <span asp-validation-for="Barkod" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="Birimi"> Birimi :</label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(c=>c.Birimi,(List<SelectListItem>)ViewBag.stokBirim,new{@class="form-control"})
+                    <span asp-validation-for="Birimi" class="text-danger"></span>
+
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="StokGrubu"> Stok Grubu :</label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(c=>c.StokGrubu,(List<SelectListItem>)ViewBag.stokGrup,new{@class="form-control"})
+                    <span asp-validation-for="StokGrubu" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="StokAltGrubu"> StokAltGrubu :</label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(c=>c.StokAltGrubu,(List<SelectListItem>)ViewBag.stokAltGrup,new{@class="form-control"})
+                    <span asp-validation-for="StokAltGrubu" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="Marka"> Marka :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Marka" class="form-control" />
+                    <span asp-validation-for="Marka" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="Modeli"> Model :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Modeli" class="form-control" />
+                    <span asp-validation-for="Modeli" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="AlisKdv"> Alış Kdv :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="AlisKdv" class="form-control" />
+                    <span asp-validation-for="AlisKdv" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="SatisKdv"> Model :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="SatisKdv" class="form-control" />
+                    <span asp-validation-for="SatisKdv" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="AlisFiyati1"> AlışFiyatı-1 :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="AlisFiyati1" class="form-control" />
+                    <span asp-validation-for="AlisFiyati1" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="AlisFiyati2"> AlışFiyatı-2 :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="AlisFiyati2" class="form-control" />
+                    <span asp-validation-for="AlisFiyati2" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="AlisFiyati3"> AlışFiyatı-3 :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="AlisFiyati3" class="form-control" />
+                    <span asp-validation-for="AlisFiyati3" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="SatisFiyati1"> SatışFiyatı-1 :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="SatisFiyati1" class="form-control" />
+                    <span asp-validation-for="SatisFiyati1" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="SatisFiyati2"> SatışFiyatı-2 :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="SatisFiyati2" class="form-control" />
+                    <span asp-validation-for="SatisFiyati2" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="SatisFiyati3"> SatışFiyatı-3 :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="SatisFiyati3" class="form-control" />
+                    <span asp-validation-for="SatisFiyati3" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="UreticiKodu"> Üretici Kodu :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="UreticiKodu" class="form-control" />
+                    <span asp-validation-for="UreticiKodu" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="GarantiSuresi"> Garanti Süresi :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="GarantiSuresi" class="form-control" />
+                    <span asp-validation-for="GarantiSuresi" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="OzelKod1"> ÖzelKod-1 :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="OzelKod1" class="form-control" />
+                    <span asp-validation-for="OzelKod1" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="OzelKod2"> ÖzelKod-2 :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="OzelKod2" class="form-control" />
+                    <span asp-validation-for="OzelKod2" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="OzelKod3"> ÖzelKod-3 :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="OzelKod3" class="form-control" />
+                    <span asp-validation-for="OzelKod3" class="text-danger"></span>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="col-4">
+                    <label asp-for="Aciklama"> Açıklama-1 :</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Aciklama" class="form-control" />
+                    <span asp-validation-for="Aciklama" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <div class="col-4 offset-4">
+                    @if (Model.Id != 0)
+                    {
+                        <button type="submit" class="btn btn-primary form-control">Stok Güncelle</button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-primary form-control">Stok Oluştur</button>
+                    }
+                </div>
+                <div class="col-4">
+                    <a asp-action="Index" class="btn btn-success form-control">Listeye Geri Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+

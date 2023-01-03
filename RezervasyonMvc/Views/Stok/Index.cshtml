@@ -1,0 +1,94 @@
+﻿@model IEnumerable<RezervasyonMvc.Model.Models.Stok>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="border p-4 bg-white">
+    <div class="row">
+        <div class="col-9">
+            <h2 class="text-dark">Tanımlar Listesi</h2>
+        </div>
+        <div class="col-3 text-left">
+            <a asp-action="Update_Insert" class="btn btn-info form-control">Yeni Oluştur</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 text-left">
+        </div>
+    </div>
+    <br />
+    <div>
+        @if (Model.Count() > 0)
+        {
+            <table id="tbl1" class="table table-striped border">
+               <thead>
+                <tr class="table-secondary">
+                    <th></th>
+                    <th></th>
+                    <th>Id</th>
+                    <th>StokKodu</th>
+                    <th>StokAdı</th>
+                    <th>Barkod</th>
+                    <th>Birimi</th>
+                    <th>Grubu</th>
+                    <th>AlışFiyatı</th>
+                    <th>Satış Fiyatı</th>
+                    <th>Görsel</th>
+                    <th>Denme1</th>
+                    <th>Denme2</th>
+
+
+
+                </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <a class="btn btn-primary text-white" asp-action="Update_Insert"
+                       asp-route-Id="@item.Id">Düzenle</a>
+
+                        </td>
+                        <td>
+                            <a class="btn btn-danger text-white" asp-action="Sil"
+                       asp-route-Id="@item.Id">Sil</a>
+                        </td>
+                        <td>@item.Id</td>
+                        <td>@item.StokKodu</td>
+                        <td>@item.StokAdi</td>
+                        <td>@item.Barkod</td>
+                        <td>@item.Birimi</td>
+                        <td>@item.StokGrubu</td>
+                        <td>@item.AlisFiyati1</td>
+                        <td>@item.SatisFiyati1</td>
+                        <td>@item.Gorsel</td>
+                        <td>@item.Gorsel</td>
+                        <td>@item.Gorsel</td>
+
+                    </tr>
+
+                }
+
+            </table>
+        }
+        else
+        {
+            <p>Listelenecek Herhangi Bir Ürün Bulunmadı</p>
+        }
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

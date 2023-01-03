@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RezervasyonMvc.Model.Models
+{
+    public class BankaHareket
+    {
+        [Key]
+        public int Id { get; set; }
+        public string FisKodu { get; set; }
+        public string Hareket { get; set; }
+        public int BankaId { get; set; }
+        public Nullable<int> CariId { get; set; }
+        public Nullable<DateTime> Tarih { get; set; }
+        public Nullable<decimal> Tutar { get; set; }
+        public string Aciklama { get; set; }
+        public virtual Banka Banka { get; set; }
+        public virtual Cari Cari { get; set; }
+    }
+}
